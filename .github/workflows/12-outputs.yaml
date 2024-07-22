@@ -26,11 +26,13 @@ jobs:
       - name: Build
         id: build
         run: |
-          # echo "$GITHUB_OUTPUT"
+          echo "111"
+          echo "$GITHUB_OUTPUT"
+          echo "222"
           echo "status=${{ inputs.build-status }}" >> "$GITHUB_OUTPUT"
           echo "output1=111222" >> "$GITHUB_OUTPUT"
           echo "output2=333555" >> "$GITHUB_OUTPUT"
-          # cat "$GITHUB_OUTPUT"
+          cat "$GITHUB_OUTPUT"
       - name: Step with mistake
         run: |
           echo "mistake=true" > "$GITHUB_OUTPUT"
