@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 env:
-  build-artifact-key: app-${{ github.sha }}
-  test-coverage-key: test-coverage-${{ github.sha }}
+  build-artifact-key: app-ning-${{ github.sha }}
+  test-coverage-key: test-ning-coverage-${{ github.sha }}
 
 jobs:
   test-build:
