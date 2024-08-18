@@ -31,7 +31,7 @@ jobs:
         uses: ./.github/actions/docker-ping-url
         with:
           url: ${{ inputs.url }}
-          max_trials: ${{ inputs.max_trials }}
+          max_trialsss: ${{ inputs.max_trials }}
           delay: ${{ inputs.delay }}
       - name: Print output from ping url
         run: |
