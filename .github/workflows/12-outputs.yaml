@@ -33,6 +33,9 @@ jobs:
           echo "output1=111222" >> "$GITHUB_OUTPUT"
           echo "output2=333555" >> "$GITHUB_OUTPUT"
           cat "$GITHUB_OUTPUT"
+          echo "33333333333"
+          echo "$status"
+          echo "55555555555"
       - name: Step with mistake
         run: |
           echo "mistake=true" > "$GITHUB_OUTPUT"
