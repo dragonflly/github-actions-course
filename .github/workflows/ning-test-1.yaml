@@ -1,0 +1,8 @@
+steps:
+  - id: get-data
+    run: echo '{"version": "1.0.0", "name": "app"}' | jq -c .
+  
+  - name: Use parsed data
+    run: echo "Version is ${{ fromJSON(steps.get-data.outputs.result).version }}"
+    env:
+      VERSION: ${{ fromJSON(steps.get-data.outputs.result).version
