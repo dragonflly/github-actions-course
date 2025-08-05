@@ -1,8 +1,24 @@
-steps:
-  - id: get-data
-    run: echo '{"version": "1.0.0", "name": "app"}' | jq -c .
-  
-  - name: Use parsed data
-    run: echo "Version is ${{ fromJSON(steps.get-data.outputs.result).version }}"
-    env:
-      VERSION: ${{ fromJSON(steps.get-data.outputs.result).version
+name: FromJSON Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Define a JSON string
+        id: set-json
+        run: echo "jsonString={\"name\":\"Alice\",\"age\":30}" >> $GITHUB_OUTPUT
+
+      - name: Parse JSON with fromJSON
+        id: parse-json
+        run: |
+          echo "name=${{ fromJSON(steps.set-json.outputs.jsonString).name }}" >> $GITHUB_OUTPUT
+          echo "age=${{ fromJSON(steps.set-json.outputs.jsonString).age }}" >> $GITHUB_OUTPUT
+
+      - name: Use parsed values
+        run: |
+          echo "Name: ${{ steps.parse-json.outputs.name }}"
+          echo "Age: ${{ steps.parse-json.outputs.age }}"
