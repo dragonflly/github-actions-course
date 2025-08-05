@@ -1,24 +1,12 @@
-name: FromJSON Example
+name: Format Example
 
 on:
   workflow_dispatch:
 
 jobs:
-  demo:
+  format-demo:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Define a JSON string
-        id: set-json
-        run: echo "jsonString={\"name\":\"Alice\",\"age\":30}" >> $GITHUB_OUTPUT
-
-      - name: Parse JSON with fromJSON
-        id: parse-json
-        run: |
-          echo "name=${{ fromJSON(steps.set-json.outputs.jsonString).name }}" >> $GITHUB_OUTPUT
-          echo "age=${{ fromJSON(steps.set-json.outputs.jsonString).age }}" >> $GITHUB_OUTPUT
-
-      - name: Use parsed values
-        run: |
-          echo "Name: ${{ steps.parse-json.outputs.name }}"
-          echo "Age: ${{ steps.parse-json.outputs.age }}"
+      - name: Use format() to create a custom message
+        run: echo "${{ format('Hello, [{0}]! Today is {1}.', 'Alice', 'Tuesday') }}"
