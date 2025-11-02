@@ -12,16 +12,13 @@ on:
     # branches: [ main, develop ]
     types: [ opened, synchronize, reopened ]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
-
-env:
-  NODE_VERSION: '18'
-  CI: true
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+#   cancel-in-progress: true
 
 jobs:
   trigger-tests:
+    if: github.event_name != 'push' || github.event.pull_request == null
     name: Trigger Tests
     runs-on: ubuntu-latest
     
@@ -32,5 +29,4 @@ jobs:
         echo "Event Action: ${{ github.event.action }}"
         echo "Ref: ${{ github.ref }}"
         echo "workflow: ${{ github.workflow }}"
-        sleep 180
 
