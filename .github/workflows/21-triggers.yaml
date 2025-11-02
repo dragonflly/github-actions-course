@@ -13,11 +13,11 @@ on:
     types: [ opened, synchronize, reopened ]
 
 env:
-  BRANCH_NAME: ${{ github.head_ref }}
+  BRANCH_NAME: ${{ github.head_ref }} || ${{ github.ref }}
 
-concurrency:
-  group: ${{ github.workflow }}-$BRANCH_NAME
-  cancel-in-progress: true
+# concurrency:
+#   group: ${{ github.workflow }}-$BRANCH_NAME
+#   cancel-in-progress: true
 
 jobs:
   trigger-tests:
@@ -34,6 +34,6 @@ jobs:
         echo "Ref: ${{ github.head_ref }}"
         echo "Ref: ${{ github.base_ref }}"
         echo "workflow: ${{ github.event.pull_request }}"
-        echo "workflow: ${{ github.event.pull_request == null }}"
+        echo "workflow: $BRANCH_NAME"
         sleep 5
 
