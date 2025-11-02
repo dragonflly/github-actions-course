@@ -30,4 +30,5 @@ jobs:
         echo "Ref: ${{ github.ref }}"
         echo "workflow: ${{ github.event.pull_request }}"
         echo "workflow: ${{ github.event.pull_request == null }}"
+        echo "workflow: ${{ github.event.pull_request.number }}"
 
