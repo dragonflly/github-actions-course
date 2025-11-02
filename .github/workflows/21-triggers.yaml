@@ -28,8 +28,9 @@ jobs:
         echo "Event Name: ${{ github.event_name }}"
         echo "Event Action: ${{ github.event.action }}"
         echo "Ref: ${{ github.ref }}"
+        echo "Ref: ${{ github.head_ref }}"
+        echo "Ref: ${{ github.base_ref }}"
         echo "workflow: ${{ github.event.pull_request }}"
         echo "workflow: ${{ github.event.pull_request == null }}"
-        echo "workflow: ${{ github.event.head_commit.message }}"
-        sleep 10
+        sleep 5
 
