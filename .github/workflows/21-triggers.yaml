@@ -15,9 +15,9 @@ on:
 env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 
-# concurrency:
-#   group: ${{ github.workflow }}-$BRANCH_NAME
-#   cancel-in-progress: true
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
 
 jobs:
   trigger-tests:
