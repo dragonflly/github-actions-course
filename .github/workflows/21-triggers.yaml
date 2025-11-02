@@ -1,4 +1,4 @@
-name: Ning trigger test workflow
+name: Ning-trigger-test-workflow
 
 on:
   push:
