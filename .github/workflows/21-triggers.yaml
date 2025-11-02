@@ -12,8 +12,11 @@ on:
     # branches: [ main, develop ]
     types: [ opened, synchronize, reopened ]
 
+env:
+  BRANCH_NAME: develop
+
 concurrency:
-  group: ${{ github.workflow }}-develop
+  group: ${{ github.workflow }}-$BRANCH_NAME
   cancel-in-progress: true
 
 jobs:
