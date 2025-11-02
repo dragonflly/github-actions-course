@@ -3,20 +3,14 @@ name: Advanced CI/CD
 on:
   push:
     branches: [ main, develop, feature/* ]
-    # branches-ignore: [ 'dependabot/**' ]
     paths:
       - 'src/**'
       - 'package.json'
       - '**.js'
       - '**'
-    # paths-ignore:
-    #   - 'docs/**'
-    #   - '**.md'
   pull_request:
     branches: [ main, develop ]
     types: [ opened, synchronize, reopened ]
-  # schedule:
-  #   - cron: '0 2 * * 1'  # Run every Monday at 2 AM
 
 env:
   NODE_VERSION: '18'
