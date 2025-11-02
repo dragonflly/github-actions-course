@@ -32,5 +32,5 @@ jobs:
         echo "Event Action: ${{ github.event.action }}"
         echo "Ref: ${{ github.ref }}"
         echo "workflow: ${{ github.workflow }}"
-        sleep 60
+        sleep 180
 
