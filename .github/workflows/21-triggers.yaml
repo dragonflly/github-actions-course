@@ -18,7 +18,7 @@ on:
 
 jobs:
   trigger-tests:
-    if: github.event_name != 'push' || github.event.pull_request == null
+    if: github.event_name == 'pull_request' || ( github.event_name == 'push' && github.event.pull_request == null )
     name: Trigger Tests
     runs-on: ubuntu-latest
     
@@ -29,4 +29,5 @@ jobs:
         echo "Event Action: ${{ github.event.action }}"
         echo "Ref: ${{ github.ref }}"
         echo "workflow: ${{ github.event.pull_request }}"
+        echo "workflow: ${{ github.event.pull_request == null }}"
 
