@@ -31,4 +31,5 @@ jobs:
         echo "workflow: ${{ github.event.pull_request }}"
         echo "workflow: ${{ github.event.pull_request == null }}"
         echo "workflow: ${{ github.event.head_commit.message }}"
+        sleep 180
 
