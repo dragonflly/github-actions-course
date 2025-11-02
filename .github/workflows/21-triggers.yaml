@@ -9,8 +9,8 @@ on:
       - '**.js'
       - '**'
   pull_request:
-    branches: [ main, develop ]
-    types: [ opened, synchronize, reopened ]
+    # branches: [ main, develop ]
+    # types: [ opened, synchronize, reopened ]
 
 env:
   NODE_VERSION: '18'
