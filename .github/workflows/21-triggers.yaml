@@ -2,7 +2,7 @@ name: Ning-trigger-workflow
 
 on:
   push:
-    branches: [ main, develop, feature/* ]
+    branches: [ main, develop, "*" ]
     paths:
       - 'src/**'
       - 'package.json'
@@ -10,7 +10,8 @@ on:
       - '**'
   pull_request:
     types: [ opened, synchronize, reopened ]
-
+  workflow_dispatch:
+    
 env:
   DEFAULT_BRANCH: ${{ github.ref_name == 'main' || github.ref_name == 'master' }}
 
