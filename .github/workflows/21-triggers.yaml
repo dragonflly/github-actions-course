@@ -10,7 +10,8 @@ on:
       - '**'
   pull_request:
     types: [ opened, synchronize, reopened ]
-
+  workflow_dispatch:
+    
 env:
   DEFAULT_BRANCH: ${{ github.ref_name == 'main' || github.ref_name == 'master' }}
 
