@@ -2,7 +2,7 @@ name: Ning-trigger-workflow
 
 on:
   push:
-    branches: [ main, develop, feature/* ]
+    branches: [ main, develop, "*" ]
     paths:
       - 'src/**'
       - 'package.json'
