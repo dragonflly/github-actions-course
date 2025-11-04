@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
     
 env:
-  DEFAULT_BRANCH: ${{ !(github.ref_name == 'main' || github.ref_name == 'master') }}
+  NON_DEFAULT_BRANCH: ${{ !(github.ref_name == 'main' || github.ref_name == 'master') }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
@@ -32,7 +32,7 @@ jobs:
         echo "Ref: ${{ github.workflow }}"
         echo "Ref: ${{ github.head_ref }}"
         echo "Ref: ${{ github.ref_name }}"
-        echo "Ref: $DEFAULT_BRANCH"
+        echo "Ref: $NON_DEFAULT_BRANCH"
 
 
 
