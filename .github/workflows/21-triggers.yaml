@@ -15,16 +15,8 @@ on:
 env:
   NON_DEFAULT_BRANCH: ${{ github.ref != 'refs/heads/main' && format('{0}-{1}', github.workflow, github.ref_name) || format('{0}-{1}', github.workflow, github.run_id) }}
 
-# concurrency:
-#   group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
-#   cancel-in-progress: true
-
-# concurrency:
-#   group: ${{ (github.ref != 'refs/heads/main' && format('{0}-{1}', github.workflow, github.ref_name)) || format('{0}-{1}', github.workflow, github.run_id) }}
-#   cancel-in-progress: true
-
 concurrency:
-  group: ${{ github.ref != 'refs/heads/main' && format('{0}-{1}', github.workflow, github.ref_name) || format('{0}-{1}', github.workflow, github.run_id) }}
+  group: ${{ (github.ref != 'refs/heads/main' || github.ref != 'refs/heads/master') && format('{0}-{1}', github.workflow, github.ref_name) || format('{0}-{1}', github.workflow, github.run_id) }}
   cancel-in-progress: true
 
 jobs:
