@@ -32,6 +32,7 @@ jobs:
         echo "workflow: ${{ github.workflow }}"
         echo "head_ref: ${{ github.head_ref }}"
         echo "ref_name: ${{ github.ref_name }}"
+        echo "ref: ${{ github.ref }}"
         echo "NON_DEFAULT_BRANCH: $NON_DEFAULT_BRANCH"
 
 
