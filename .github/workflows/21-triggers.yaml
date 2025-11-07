@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
     
 env:
-  NON_DEFAULT_BRANCH: ${{ github.ref != 'refs/heads/main' && format('{0}-{1}', github.workflow, github.ref_name) }}
+  NON_DEFAULT_BRANCH: ${{ github.ref != 'refs/heads/main' && format('{0}-{1}', github.workflow, github.ref_name) || null }}
 
 # concurrency:
 #   group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
