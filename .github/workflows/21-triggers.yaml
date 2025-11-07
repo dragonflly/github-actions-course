@@ -13,11 +13,11 @@ on:
   workflow_dispatch:
     
 env:
-  NON_DEFAULT_BRANCH: ${{ !(github.ref_name == 'main' || github.ref_name == 'master') }}
+  NON_DEFAULT_BRANCH: ${{ ((github.head_ref || github.ref_name) == 'main' || (github.head_ref || github.ref_name) == 'master') && format('{0}-{1}', github.workflow, github.run_id) }}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
-  cancel-in-progress: ${{ !(github.ref_name == 'main' || github.ref_name == 'master') }}
+  group: ${{ (github.ref != 'refs/heads/main' || github.ref != 'refs/heads/master') && format('{0}-{1}', github.workflow, github.ref_name) || format('{0}-{1}', github.workflow, github.run_id) }}
+  cancel-in-progress: true
 
 jobs:
   trigger-tests:
