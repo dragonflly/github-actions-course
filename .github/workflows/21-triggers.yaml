@@ -16,7 +16,7 @@ env:
   NON_DEFAULT_BRANCH: ${{ (((github.head_ref || github.ref_name) == 'main' || (github.head_ref || github.ref_name) == 'master') && format('{0}-{1}', github.workflow, github.run_id)) || format('{0}-{1}', github.workflow, github.head_ref||github.ref_name) }}
 
 concurrency:
-  group: ${{ (github.ref != 'refs/heads/main' || github.ref != 'refs/heads/master') && format('{0}-{1}', github.workflow, github.ref_name) || format('{0}-{1}', github.workflow, github.run_id) }}
+  group: ${{ (((github.head_ref || github.ref_name) == 'main' || (github.head_ref || github.ref_name) == 'master') && format('{0}-{1}', github.workflow, github.run_id)) || format('{0}-{1}', github.workflow, github.head_ref||github.ref_name) }}
   cancel-in-progress: true
 
 jobs:
