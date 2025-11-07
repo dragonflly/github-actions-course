@@ -1,10 +1,10 @@
-# Mastering GitHub Actions: From Beginner to Expertaaaa
+
 
 ### Course link (with a big discount 🙂): https://www.lauromueller.com/courses/mastering-github-actions
 
 **Check my other courses:** 
 
-- 👉 The Complete Docker and Kubernetes Course: From Zero to Hero - https://www.lauromueller.com/courses/docker-kubernetes
+- 👉 The Complete Docker and Kubernetes Course: From Zero to Hero - https://www.lauromueller.com/courses/docker-
 - 👉 The Definitive Helm Course: From Beginner to Master - https://www.lauromueller.com/courses/definitive-helm-course
 - 👉 Mastering Terraform: From Beginner to Expert - https://www.lauromueller.com/courses/mastering-terraform
 - 👉 Write better code: 20 code smells and how to get rid of them - https://www.lauromueller.com/courses/writing-clean-code
