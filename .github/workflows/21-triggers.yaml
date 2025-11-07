@@ -24,7 +24,7 @@ env:
 #   cancel-in-progress: true
 
 concurrency:
-  group: ${{ github.ref != 'refs/heads/main' && format('{0}-{1}', github.workflow, github.ref_name) }}
+  group: ${{ null }}
   cancel-in-progress: true
 
 jobs:
